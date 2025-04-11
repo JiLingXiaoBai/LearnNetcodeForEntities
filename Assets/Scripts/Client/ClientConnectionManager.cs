@@ -108,11 +108,24 @@ public class ClientConnectionManager : MonoBehaviour
         var clientWorld = ClientServerBootstrap.CreateClientWorld("Turbo Client World");
 
         var connectionEndPoint = NetworkEndpoint.Parse(Address, Port);
-        using var networkDriverQuery =
-            clientWorld.EntityManager.CreateEntityQuery(ComponentType.ReadWrite<NetworkStreamDriver>());
-        networkDriverQuery.GetSingletonRW<NetworkStreamDriver>().ValueRW
-            .Connect(clientWorld.EntityManager, connectionEndPoint);
+        {
+            using var networkDriverQuery =
+                clientWorld.EntityManager.CreateEntityQuery(ComponentType.ReadWrite<NetworkStreamDriver>());
+            networkDriverQuery.GetSingletonRW<NetworkStreamDriver>().ValueRW
+                .Connect(clientWorld.EntityManager, connectionEndPoint);
+        }
 
         World.DefaultGameObjectInjectionWorld = clientWorld;
+        
+        var team = _teamDropdown.value switch
+        {
+            0 => TeamType.AutoAssign,
+            1 => TeamType.Blue,
+            2 => TeamType.Red,
+            _ => TeamType.None,
+        };
+        
+        var teamRequestEntity = clientWorld.EntityManager.CreateEntity();
+        clientWorld.EntityManager.AddComponentData(teamRequestEntity, new ClientTeamRequest { Value = team });
     }
 }
