@@ -4,11 +4,15 @@ using UnityEngine.SceneManagement;
 
 public partial class LoadConnectionSceneSystem : SystemBase
 {
-    protected override void OnUpdate()
+    protected override void OnCreate()
     {
         Enabled = false;
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0)) return;
         SceneManager.LoadScene(0);
+    }
+
+    protected override void OnUpdate()
+    {
     }
 }
 #endif

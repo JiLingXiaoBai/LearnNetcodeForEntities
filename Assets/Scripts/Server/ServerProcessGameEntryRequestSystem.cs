@@ -26,7 +26,7 @@ public partial struct ServerProcessGameEntryRequestSystem : ISystem
         {
             ecb.DestroyEntity(requestEntity);
             ecb.AddComponent<NetworkStreamInGame>(requestSource.ValueRO.SourceConnection);
-            
+
             var requestedTeamType = teamRequest.ValueRO.Value;
 
             if (requestedTeamType == TeamType.AutoAssign)
@@ -35,15 +35,29 @@ public partial struct ServerProcessGameEntryRequestSystem : ISystem
             }
 
             var clientId = SystemAPI.GetComponent<NetworkId>(requestSource.ValueRO.SourceConnection).Value;
-            
+
             Debug.Log($"Server is assigning client {clientId} to the {requestedTeamType.ToString()} team.");
-            
+            float3 spawnPosition;
+            switch (requestedTeamType)
+            {
+                case TeamType.Blue:
+                    spawnPosition = new float3(-50f, 1f, -50f);
+                    break;
+                case TeamType.Red:
+                    spawnPosition = new float3(50f, 1f, 50f);
+                    break;
+                default:
+                    continue;
+            }
+
             var newChamp = ecb.Instantiate(championPrefab);
             ecb.SetName(newChamp, "Champion");
 
-            var spawnPosition = new float3(0, 1, 0);
             var newTransform = LocalTransform.FromPosition(spawnPosition);
             ecb.SetComponent(newChamp, newTransform);
+            ecb.SetComponent(newChamp, new GhostOwner { NetworkId = clientId });
+            ecb.SetComponent(newChamp, new MobaTeam { Value = requestedTeamType });
+            ecb.AppendToBuffer(requestSource.ValueRO.SourceConnection, new LinkedEntityGroup() { Value = newChamp });
         }
         ecb.Playback(state.EntityManager);
     }
