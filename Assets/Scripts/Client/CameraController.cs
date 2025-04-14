@@ -47,7 +47,7 @@ public class CameraController : MonoBehaviour
         _transposer = _cinemachineCamera.GetComponent<CinemachinePositionComposer>();
     }
 
-    /*private void Start()
+    private void Start()
     {
         if (World.DefaultGameObjectInjectionWorld == null) return;
         _entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
@@ -72,7 +72,7 @@ public class CameraController : MonoBehaviour
                 _cameraSet = true;
             }
         }
-    }*/
+    }
 
     private void OnValidate()
     {
@@ -81,7 +81,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        // SetCameraForAutoAssignTeam();
+        SetCameraForAutoAssignTeam();
         MoveCamera();
         ZoomCamera();
     }
@@ -124,7 +124,7 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    /*private void SetCameraForAutoAssignTeam()
+    private void SetCameraForAutoAssignTeam()
     {
         if (!_cameraSet)
         {
@@ -141,7 +141,7 @@ public class CameraController : MonoBehaviour
                 _cameraSet = true;
             }
         }
-    }*/
+    }
 
     private void OnDrawGizmos()
     {
