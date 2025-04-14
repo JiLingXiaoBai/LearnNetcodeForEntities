@@ -29,3 +29,9 @@ public struct ChampMoveTargetPosition : IInputComponentData
 {
     [GhostField(Quantization = 0)] public float3 Value;
 }
+
+[GhostComponent(PrefabType = GhostPrefabType.AllPredicted)]
+public struct AbilityInput : IInputComponentData
+{
+    public InputEvent AoeAbility;
+}
