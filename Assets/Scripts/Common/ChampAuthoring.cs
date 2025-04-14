@@ -13,6 +13,7 @@ public class ChampAuthoring : MonoBehaviour
             AddComponent<NewChampTag>(entity);
             AddComponent<MobaTeam>(entity);
             AddComponent<URPMaterialPropertyBaseColor>(entity);
+            AddComponent<ChampMoveTargetPosition>(entity);
         }
     }
 }
