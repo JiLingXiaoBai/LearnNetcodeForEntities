@@ -40,7 +40,7 @@ public partial class ChampMoveInputSystem : SystemBase
         var mainCamera = EntityManager.GetComponentObject<MainCamera>(cameraEntity).Value;
 
         var mousePosition = Input.mousePosition;
-        mousePosition.z = 100f;
+        mousePosition.z = 1000f;
         var worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
 
         var selectionInput = new RaycastInput

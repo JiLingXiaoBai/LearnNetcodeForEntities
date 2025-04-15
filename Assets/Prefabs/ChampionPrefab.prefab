@@ -341,7 +341,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AoeAbility: {fileID: 8037852591907856037, guid: 4c756f1ac99256c4da79c5a6e34751e4,
     type: 3}
+  SkillShotAbility: {fileID: 4740173638999349956, guid: aae103dffaa93364ea0bc0c60b8f0a7e,
+    type: 3}
   AoeAbilityCooldown: 5
+  SkillShotAbilityCooldown: 3.5
   NetCodeConfig: {fileID: 11400000, guid: dce9a8c7da8b8cf4093e70364ed6f4c4, type: 2}
 --- !u!1 &859060646936255700
 GameObject:
