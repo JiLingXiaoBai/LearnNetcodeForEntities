@@ -23,9 +23,12 @@ public partial struct AimSkillShotSystem : ISystem
 
     public void OnUpdate(ref SystemState state)
     {
-        foreach (var (aimInput, transform) in SystemAPI.Query<RefRW<AimInput>, RefRO<LocalTransform>>()
+        foreach (var (aimInput, transform, skillShotUIReference) in SystemAPI
+                     .Query<RefRW<AimInput>, RefRO<LocalTransform>, SkillShotUIReference>()
                      .WithAll<AimSkillShotTag, OwnerChampTag>())
         {
+            skillShotUIReference.Value.transform.position = transform.ValueRO.Position;
+            
             var collisionWorld = SystemAPI.GetSingleton<PhysicsWorldSingleton>().CollisionWorld;
             var cameraEntity = SystemAPI.GetSingletonEntity<MainCameraTag>();
             var mainCamera = state.EntityManager.GetComponentObject<MainCamera>(cameraEntity).Value;
@@ -47,6 +50,10 @@ public partial struct AimSkillShotSystem : ISystem
                 directionToTarget.y = transform.ValueRO.Position.y;
                 directionToTarget = math.normalize(directionToTarget);
                 aimInput.ValueRW.Value = directionToTarget;
+                
+                var angleRag = math.atan2(directionToTarget.z, directionToTarget.x);
+                var angleDeg = math.degrees(angleRag);
+                skillShotUIReference.Value.transform.rotation = Quaternion.Euler(0, -angleDeg, 0);
             }
         }
     }
