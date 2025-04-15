@@ -36,7 +36,6 @@ public partial struct AbilityCooldownUISystem : ISystem
                 abilityCooldownUIController.UpdateAoeMask(fillAmount);
             }
 
-
             if (curTargetTicks.SkillShotAbility == NetworkTick.Invalid ||
                 currentTick.IsNewerThan(curTargetTicks.SkillShotAbility))
             {
