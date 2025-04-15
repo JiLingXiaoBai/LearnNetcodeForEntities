@@ -11,7 +11,7 @@ public partial struct InitializeCharacterSystem : ISystem
     {
         var ecb = new EntityCommandBuffer(Allocator.Temp);
         foreach (var (physicsMass, mobaTeam, newCharacterEntity) in SystemAPI
-                     .Query<RefRW<PhysicsMass>, RefRO<MobaTeam>>().WithAny<NewChampTag>().WithEntityAccess())
+                     .Query<RefRW<PhysicsMass>, RefRO<MobaTeam>>().WithAny<NewChampTag, NewMinionTag>().WithEntityAccess())
         {
             physicsMass.ValueRW.InverseInertia[0] = 0;
             physicsMass.ValueRW.InverseInertia[1] = 0;
@@ -26,6 +26,7 @@ public partial struct InitializeCharacterSystem : ISystem
             
             ecb.SetComponent(newCharacterEntity, new URPMaterialPropertyBaseColor {Value = teamColor});
             ecb.RemoveComponent<NewChampTag>(newCharacterEntity);
+            ecb.RemoveComponent<NewMinionTag>(newCharacterEntity);
         }
         
         ecb.Playback(state.EntityManager);

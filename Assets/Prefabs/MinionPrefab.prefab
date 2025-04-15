@@ -358,6 +358,10 @@ GameObject:
   - component: {fileID: 5285028580195908223}
   - component: {fileID: 2765063416711968252}
   - component: {fileID: 607582610522599371}
+  - component: {fileID: 6004919518923883717}
+  - component: {fileID: 2425184470569856490}
+  - component: {fileID: 7762826738349723315}
+  - component: {fileID: 5397986401012467971}
   m_Layer: 0
   m_Name: MinionPrefab
   m_TagString: Untagged
@@ -620,3 +624,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHitPoints: 250
+  HealthBarOffset: {x: 0, y: 2, z: 0}
+--- !u!114 &6004919518923883717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3608237881302961655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d9b1d5ae00049f99027054b94808961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 2
+--- !u!114 &2425184470569856490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3608237881302961655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae4cd60dd184722b244661dcc231af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NpcTargetRadius: 10
+  FirePointOffset: {x: 0, y: 0, z: 0}
+  AttackCooldownTime: 3
+  AttackPrefab: {fileID: 6352564356643311235, guid: b0f8af95614973c47b54e1a382c5664d,
+    type: 3}
+  NetCodeConfig: {fileID: 11400000, guid: dce9a8c7da8b8cf4093e70364ed6f4c4, type: 2}
+--- !u!114 &7762826738349723315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3608237881302961655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16549610bfe4458aa9389201d072bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5397986401012467971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3608237881302961655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c79d771cedb4794bf100ce60df5f764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultGhostMode: 0
+  SupportedGhostModes: 3
+  OptimizationMode: 0
+  Importance: 100
+  prefabId: 
+  HasOwner: 0
+  SupportAutoCommandTarget: 1
+  TrackInterpolationDelay: 0
+  GhostGroup: 0
+  UsePreSerialization: 0
+  RollbackPredictedSpawnedGhostState: 0
+  RollbackPredictionOnStructuralChanges: 0
