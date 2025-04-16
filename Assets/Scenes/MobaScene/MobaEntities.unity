@@ -1197,6 +1197,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Champion: {fileID: 403193853099150282, guid: 2fe49a526567fdc46a55b0b1094bd406, type: 3}
   Minion: {fileID: 3608237881302961655, guid: 99194622db1b196499c57b33645cfe56, type: 3}
+  GameOverEntity: {fileID: 5831028294778708664, guid: 591aadaaf1b47044eb3be6ad6500a046,
+    type: 3}
   HealthBarPrefab: {fileID: 6246730936639062891, guid: 8aadaf8ffd0c86343a26b96a6d7bb1fd,
     type: 3}
   SkillShotAimPrefab: {fileID: 907054830368013773, guid: 660bbd0c07689ab4da9d13040d620316,
@@ -1260,6 +1262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1329835357}
+  - component: {fileID: 1329835358}
   m_Layer: 0
   m_Name: GameStartProperties
   m_TagString: Untagged
@@ -1282,6 +1285,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1329835358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329835356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c8cbc66d3424cc096e4320f28bde0a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxPlayersPerTeam: 5
+  MinPlayersToStartGame: 1
+  CountdownTime: 3
+  SpawnOffsets:
+  - {x: 0, y: 0, z: 0}
+  - {x: -2, y: 0, z: 2}
+  - {x: 2, y: 0, z: 2}
+  - {x: 2, y: 0, z: -2}
+  - {x: -2, y: 0, z: -2}
 --- !u!1 &1646246674
 GameObject:
   m_ObjectHideFlags: 0

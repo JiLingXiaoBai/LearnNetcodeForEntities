@@ -34,7 +34,7 @@ public class GameStartUIController : MonoBehaviour
         _entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
         _networkConnectionQuery = _entityManager.CreateEntityQuery(typeof(NetworkStreamConnection));
 
-        /*
+
         var startGameSystem = World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged<ClientStartGameSystem>();
         if (startGameSystem != null)
         {
@@ -49,7 +49,6 @@ public class GameStartUIController : MonoBehaviour
             countdownSystem.OnUpdateCountdownText += UpdateCountdownText;
             countdownSystem.OnCountdownEnd += EndCountdown;
         }
-        */
     }
 
     private void OnDisable()
@@ -58,7 +57,6 @@ public class GameStartUIController : MonoBehaviour
         _confirmQuitButton.onClick.RemoveAllListeners();
         _cancelQuitButton.onClick.RemoveAllListeners();
 
-        /*
         if (World.DefaultGameObjectInjectionWorld == null) return;
         var startGameSystem = World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged<ClientStartGameSystem>();
         if (startGameSystem != null)
@@ -74,7 +72,6 @@ public class GameStartUIController : MonoBehaviour
             countdownSystem.OnUpdateCountdownText -= UpdateCountdownText;
             countdownSystem.OnCountdownEnd -= EndCountdown;
         }
-        */
     }
 
     private void UpdatePlayerRemainingText(int playersRemainingToStart)

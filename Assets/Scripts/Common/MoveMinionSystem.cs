@@ -7,6 +7,11 @@ using Unity.Transforms;
 [UpdateInGroup(typeof(PredictedSimulationSystemGroup))]
 public partial struct MoveMinionSystem : ISystem
 {
+    public void OnCreate(ref SystemState state)
+    {
+        state.RequireForUpdate<GameplayingTag>();
+    }
+    
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {

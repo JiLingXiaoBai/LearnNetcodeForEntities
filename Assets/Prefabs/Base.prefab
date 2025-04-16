@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1735609779948607354}
   - component: {fileID: 8670539953212335375}
   - component: {fileID: 7278864124769994185}
+  - component: {fileID: -4313973294736591696}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -317,7 +318,7 @@ MonoBehaviour:
   SupportedGhostModes: 3
   OptimizationMode: 1
   Importance: 50
-  prefabId: 
+  prefabId: c22c40ef4537da44597359c8d8e582e2
   HasOwner: 0
   SupportAutoCommandTarget: 1
   TrackInterpolationDelay: 0
@@ -325,3 +326,15 @@ MonoBehaviour:
   UsePreSerialization: 0
   RollbackPredictedSpawnedGhostState: 0
   RollbackPredictionOnStructuralChanges: 0
+--- !u!114 &-4313973294736591696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5326781307255034168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54966c95ae0d4e35983d1996685184d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

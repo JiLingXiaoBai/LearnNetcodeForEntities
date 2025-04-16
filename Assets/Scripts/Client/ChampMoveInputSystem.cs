@@ -12,6 +12,7 @@ public partial class ChampMoveInputSystem : SystemBase
 
     protected override void OnCreate()
     {
+        RequireForUpdate<GameplayingTag>();
         _inputActions = new MobaInputActions();
         _selectionFilter = new CollisionFilter
         {

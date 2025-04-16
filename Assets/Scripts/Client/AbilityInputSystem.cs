@@ -6,6 +6,7 @@ public partial class AbilityInputSystem : SystemBase
 
     protected override void OnCreate()
     {
+        RequireForUpdate<GameplayingTag>();
         _inputActions = new MobaInputActions();
     }
 

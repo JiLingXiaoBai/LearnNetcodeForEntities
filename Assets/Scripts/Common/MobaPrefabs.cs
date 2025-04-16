@@ -5,6 +5,7 @@ public struct MobaPrefabs : IComponentData
 {
     public Entity Champion;
     public Entity Minion;
+    public Entity GameOverEntity;
 }
 
 public class UIPrefabs : IComponentData

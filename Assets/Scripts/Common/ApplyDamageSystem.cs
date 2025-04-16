@@ -10,6 +10,7 @@ public partial struct ApplyDamageSystem : ISystem
     public void OnCreate(ref SystemState state)
     {
         state.RequireForUpdate<NetworkTime>();
+        state.RequireForUpdate<GameplayingTag>();
     }
 
     [BurstCompile]

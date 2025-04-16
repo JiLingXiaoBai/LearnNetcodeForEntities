@@ -7,6 +7,7 @@ public partial struct SpawnMinionSystem : ISystem
 {
     public void OnCreate(ref SystemState state)
     {
+        state.RequireForUpdate<GameplayingTag>();
         state.RequireForUpdate<MinionPathContainers>();
         state.RequireForUpdate<MobaPrefabs>();
         state.RequireForUpdate<BeginSimulationEntityCommandBufferSystem.Singleton>();

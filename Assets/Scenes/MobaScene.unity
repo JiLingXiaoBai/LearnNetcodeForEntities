@@ -565,6 +565,8 @@ GameObject:
   - component: {fileID: 111262448}
   - component: {fileID: 111262447}
   - component: {fileID: 111262446}
+  - component: {fileID: 111262450}
+  - component: {fileID: 111262451}
   m_Layer: 5
   m_Name: HUDCanvas
   m_TagString: Untagged
@@ -660,6 +662,42 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &111262450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111262445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32b7d2eaf23c4ea48f58e2bea9dbc546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _beginGamePanel: {fileID: 250991379}
+  _confirmQuitPanel: {fileID: 932224090}
+  _countdownPanel: {fileID: 587874095}
+  _quitWaitingButton: {fileID: 422226216}
+  _confirmQuitButton: {fileID: 1347971011}
+  _cancelQuitButton: {fileID: 1464990059}
+  _waitingText: {fileID: 2088007927}
+  _countdownText: {fileID: 407582865}
+--- !u!114 &111262451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111262445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd5638d3e91344cd9faae3c0d77b432e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameOverPanel: {fileID: 1974972118}
+  _gameOverText: {fileID: 464791596}
+  _returnToMainButton: {fileID: 1175168628}
+  _rageQuitButton: {fileID: 967502068}
 --- !u!1 &111680876
 GameObject:
   m_ObjectHideFlags: 0
