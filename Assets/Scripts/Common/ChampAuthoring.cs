@@ -19,6 +19,7 @@ public class ChampAuthoring : MonoBehaviour
             AddComponent(entity, new CharacterMoveSpeed { Value = authoring.MoveSpeed });
             AddComponent<AbilityInput>(entity);
             AddComponent<AimInput>(entity);
+            AddComponent<NetworkEntityReference>(entity);
         }
     }
 }

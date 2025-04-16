@@ -567,6 +567,7 @@ GameObject:
   - component: {fileID: 111262446}
   - component: {fileID: 111262450}
   - component: {fileID: 111262451}
+  - component: {fileID: 111262452}
   m_Layer: 5
   m_Name: HUDCanvas
   m_TagString: Untagged
@@ -698,6 +699,20 @@ MonoBehaviour:
   _gameOverText: {fileID: 464791596}
   _returnToMainButton: {fileID: 1175168628}
   _rageQuitButton: {fileID: 967502068}
+--- !u!114 &111262452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111262445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0f405f23a74215b472c04b8171af10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _respawnPanel: {fileID: 730469352}
+  _respawnCountdownText: {fileID: 1107588012}
 --- !u!1 &111680876
 GameObject:
   m_ObjectHideFlags: 0

@@ -87,6 +87,13 @@ public partial struct ServerProcessGameEntryRequestSystem : ISystem
             ecb.SetComponent(newChamp, new GhostOwner { NetworkId = clientId });
             ecb.SetComponent(newChamp, new MobaTeam { Value = requestedTeamType });
             ecb.AppendToBuffer(requestSource.ValueRO.SourceConnection, new LinkedEntityGroup() { Value = newChamp });
+            
+            ecb.SetComponent(newChamp, new NetworkEntityReference{Value = requestSource.ValueRO.SourceConnection});
+            ecb.AddComponent(requestSource.ValueRO.SourceConnection, new PlayerSpawnInfo()
+            {
+                MobaTeam = requestedTeamType,
+                SpawnPosition = spawnPosition
+            });
 
             var playersRemainingToStart = gameStartProperties.MinPlayersToStartGame - teamPlayerCounter.TotalPlayers;
             var gameStartRpc = ecb.CreateEntity();

@@ -9,6 +9,7 @@ public partial struct DestroyEntitySystem : ISystem
 {
     public void OnCreate(ref SystemState state)
     {
+        state.RequireForUpdate<RespawnEntityTag>();
         state.RequireForUpdate<MobaPrefabs>();
         state.RequireForUpdate<NetworkTime>();
         state.RequireForUpdate<BeginSimulationEntityCommandBufferSystem.Singleton>();
@@ -36,6 +37,22 @@ public partial struct DestroyEntitySystem : ISystem
                     var winning = losing == TeamType.Blue ? TeamType.Red : TeamType.Blue;
                     Debug.Log($"{winning.ToString()} Team Won!!");
                     ecb.SetComponent(gameOverEntity, new WinningTeam { Value = winning });
+                }
+
+                if (SystemAPI.HasComponent<ChampTag>(entity))
+                {
+                    var networkEntity = SystemAPI.GetComponent<NetworkEntityReference>(entity).Value;
+                    var respawnEntity = SystemAPI.GetSingletonEntity<RespawnEntityTag>();
+                    var respawnTickCount = SystemAPI.GetComponent<RespawnTickCount>(respawnEntity).Value;
+                    var respawnTick = currentTick;
+                    respawnTick.Add(respawnTickCount);
+                    
+                    ecb.AppendToBuffer(respawnEntity, new RespawnBufferElement
+                    {
+                        NetworkEntity = networkEntity,
+                        RespawnTick = respawnTick,
+                        NetworkId = SystemAPI.GetComponent<NetworkId>(networkEntity).Value
+                    });
                 }
                 ecb.DestroyEntity(entity);
             }

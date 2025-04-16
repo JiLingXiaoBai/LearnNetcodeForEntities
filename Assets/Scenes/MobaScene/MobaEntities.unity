@@ -1199,6 +1199,8 @@ MonoBehaviour:
   Minion: {fileID: 3608237881302961655, guid: 99194622db1b196499c57b33645cfe56, type: 3}
   GameOverEntity: {fileID: 5831028294778708664, guid: 591aadaaf1b47044eb3be6ad6500a046,
     type: 3}
+  RespawnEntity: {fileID: 1755848443228736658, guid: e6950ff561cd78b439e5b1029d62f0ae,
+    type: 3}
   HealthBarPrefab: {fileID: 6246730936639062891, guid: 8aadaf8ffd0c86343a26b96a6d7bb1fd,
     type: 3}
   SkillShotAimPrefab: {fileID: 907054830368013773, guid: 660bbd0c07689ab4da9d13040d620316,
