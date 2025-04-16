@@ -83,7 +83,7 @@ public partial struct BeginSkillShotSystem : ISystem
                      .WithEntityAccess())
         {
             if (!abilityInput.ValueRO.ConfirmSkillShotAbility.IsSet) continue;
-            Object.Instantiate(skillShotUIReference.Value);
+            Object.Destroy(skillShotUIReference.Value);
             ecb.RemoveComponent<SkillShotUIReference>(entity);
         }
 
@@ -93,7 +93,6 @@ public partial struct BeginSkillShotSystem : ISystem
             Object.Destroy(skillShotUIReference.Value);
             ecb.RemoveComponent<SkillShotUIReference>(entity);
         }
-
 
         ecb.Playback(state.EntityManager);
     }
