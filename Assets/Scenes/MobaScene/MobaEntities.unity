@@ -1300,7 +1300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxPlayersPerTeam: 5
-  MinPlayersToStartGame: 1
+  MinPlayersToStartGame: 10
   CountdownTime: 3
   SpawnOffsets:
   - {x: 0, y: 0, z: 0}

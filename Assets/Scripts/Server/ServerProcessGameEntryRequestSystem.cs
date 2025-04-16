@@ -87,13 +87,15 @@ public partial struct ServerProcessGameEntryRequestSystem : ISystem
             ecb.SetComponent(newChamp, new GhostOwner { NetworkId = clientId });
             ecb.SetComponent(newChamp, new MobaTeam { Value = requestedTeamType });
             ecb.AppendToBuffer(requestSource.ValueRO.SourceConnection, new LinkedEntityGroup() { Value = newChamp });
-            
-            ecb.SetComponent(newChamp, new NetworkEntityReference{Value = requestSource.ValueRO.SourceConnection});
+
+            ecb.SetComponent(newChamp, new NetworkEntityReference { Value = requestSource.ValueRO.SourceConnection });
             ecb.AddComponent(requestSource.ValueRO.SourceConnection, new PlayerSpawnInfo()
             {
                 MobaTeam = requestedTeamType,
                 SpawnPosition = spawnPosition
             });
+
+            ecb.SetComponent(requestSource.ValueRO.SourceConnection, new CommandTarget { targetEntity = newChamp });
 
             var playersRemainingToStart = gameStartProperties.MinPlayersToStartGame - teamPlayerCounter.TotalPlayers;
             var gameStartRpc = ecb.CreateEntity();
@@ -107,7 +109,7 @@ public partial struct ServerProcessGameEntryRequestSystem : ISystem
                 {
                     Value = gameStartTick
                 });
-                
+
                 var gameStartEntity = ecb.CreateEntity();
                 ecb.AddComponent(gameStartEntity, new GameStartTick
                 {
@@ -116,7 +118,7 @@ public partial struct ServerProcessGameEntryRequestSystem : ISystem
             }
             else
             {
-                ecb.AddComponent(gameStartRpc, new PlayersRemainingToStart{Value = playersRemainingToStart});
+                ecb.AddComponent(gameStartRpc, new PlayersRemainingToStart { Value = playersRemainingToStart });
             }
             ecb.AddComponent<SendRpcCommandRequest>(gameStartRpc);
         }
